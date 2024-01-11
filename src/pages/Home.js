@@ -5,7 +5,7 @@ import NavBar from '../components/NavBar'
 //import {projects as data} from '../projects'
 
 function Home() {
-    console.log("Home rendering")
+    //console.log("Home rendering")
     const [projects, setProjects]=useState([])
     useEffect(()=>{
       fetch('http://localhost:3000/projects')
@@ -15,11 +15,11 @@ function Home() {
     },[])
 
     function handleNewProject(projectAdded){
-      console.log(projectAdded)
+      //console.log(projectAdded)
         setProjects([...projects,projectAdded])
     }
     
-    console.log(handleNewProject);
+   // console.log(handleNewProject);
     //console.log (projects)
     
     const projectsToDisplay=projects.map(project=>{
@@ -30,9 +30,11 @@ function Home() {
       <header>
         <NavBar/>
       </header>
+      <main>
       <h2>I am the UFS Engineering Home</h2>
       {projectsToDisplay}
       <NewProject handleNewProject={handleNewProject}/>
+      </main>
     </div>
   )
 }

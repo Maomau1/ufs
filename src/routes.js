@@ -5,11 +5,12 @@ import ErrorPage from './pages/ErrorPage';
 import About from './pages/About';
 import App from './App';
 import NewProject from './pages/NewProject';
+import WelcomePage from './pages/WelcomePage';
 
 const routes= [
     {
         path:"/",
-        element:<App/>,
+        element:<WelcomePage/>,
         errorElement:<ErrorPage/>
     },
     {

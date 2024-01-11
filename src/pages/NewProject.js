@@ -14,7 +14,7 @@ function NewProject({handleNewProject}) {
         let value=e.target.value;
         setFormData({...formData,
         [name]:value})
-        //console.log(formData)
+        console.log(formData)
     }
     function handleSubmit(e){
         e.preventDefault()
@@ -26,9 +26,20 @@ function NewProject({handleNewProject}) {
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify(newData)
         }
-        fetch('http://localhost:4000/projects',configObj)
+        fetch('http://localhost:3000/projects',configObj)
         .then(res=>res.json())
-        .then(data=>handleNewProject(data))
+        .then(data=>{
+            handleNewProject(data)
+            //props.history.push('project/${data.id}')
+            })
+
+        const clearForm={...formData,
+            name:"",
+            location:"New York, NY",
+            description:"",
+        }
+
+        setFormData(clearForm)
     }
     //console.log(formData)
     return (
@@ -39,10 +50,10 @@ function NewProject({handleNewProject}) {
         <form onSubmit={handleSubmit}>
         <h2>New Project Form</h2>
         <label htmlFor="project-name ">Project Name</label>
-        <input type="text" name="name" placeholder='Project Name' onChange={handleChange}/>
+        <input type="text" name="name" value={formData.name} placeholder='Project Name' onChange={handleChange}/>
         <br/>
         <label htmlFor='project-location '>Project Location</label>
-        <select name="location" id="" onChange={handleChange}>Project Location
+        <select name="location" value={formData.location} id="" onChange={handleChange}>Project Location
             <option value="New York">New York, NY</option>
             <option value="Brooklyn">Brooklyn, NY</option>
             <option value="Queens">Queens, NY</option>
@@ -53,9 +64,9 @@ function NewProject({handleNewProject}) {
         </select>
         <br/>
         <label htmlFor="project-description">Project Description</label>
-        <input type="text" name='description' placeholder='Project description' onChange={handleChange}></input>
+        <textarea type="text" name='description' value={formData.description} placeholder='Project description' onChange={handleChange}></textarea>
         <br/>
-        <button>Add Project</button>
+        <button type="submit">Add Project</button>
     </form>
     </>
   )
