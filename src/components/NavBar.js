@@ -11,7 +11,7 @@ function NavBar() {
             Home
         </NavLink>
         <NavLink
-        to="/home">
+        to="/projects">
             Projects
         </NavLink>  
         <NavLink

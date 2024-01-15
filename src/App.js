@@ -1,31 +1,33 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Home from './pages/Home';
-import {Links, Navigate, useNavigate} from 'react-router-dom'
-import {projects as data} from './projects';
-import NewProject from './pages/NewProject';
+import {Links, Navigate, Outlet, useNavigate} from 'react-router-dom'
+import Home from './pages/Projects';
 
 
 function App() {
-  console.log("App rendering")
+  const [projects, setProjects]=useState([])
+
+    useEffect(()=>{
+      fetch('http://localhost:3000/projects')
+      .then(res=>res.json())
+      .then(data=>setProjects(data))
+      .catch(error=>console.log(error))
+    },[])
+
+  console.log("App rendering",projects)
   const navigate = useNavigate();
   function handleClick(e){
     console.log(e.target.value)
     navigate(`${e.target.value}`)
   }
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Welcome to <code>ufs first database attempt</code> beta version.
-        </p>
-        <span><button value='/home' onClick={handleClick}>See Projects</button> <button value='newproject' onClick={handleClick}>Add New Project</button></span>
-      </header>
-      <main>
-      </main>
-    </div>
+  function handleNewProject(projectAdded){
+    console.log(projectAdded)
+   setProjects([...projects,projectAdded])
+  }
+  return (<>
+  <Outlet context={{projects:projects, handleNewProject:handleNewProject}}/>
+  </>
   );
 }
 

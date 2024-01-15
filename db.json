@@ -13,34 +13,16 @@
       "description": "install 200 micropiles to support the existing bridge while the bearings are being replace. 100 load test are to be completed."
     },
     {
-      "name": "5th Ave SeaBeach",
-      "location": "New York, NY",
-      "description": "bidge restauration. installation of micropiles, soldier piles and pipe piles",
+      "name": "5th Ave Seabeach",
+      "location": "Brooklyn",
+      "description": "bridge replacement.",
       "id": 3
     },
     {
-      "name": "5th Ave SeaBeach",
-      "location": "New York, NY",
-      "description": "bidge restauration. installation of micropiles, soldier piles and pipe piles",
+      "name": "Maspeth Substation",
+      "location": "Brooklyn",
+      "description": "Construction of a secant pile wall.",
       "id": 4
-    },
-    {
-      "name": "",
-      "location": "New York, NY",
-      "description": "",
-      "id": 5
-    },
-    {
-      "name": "",
-      "location": "New York, NY",
-      "description": "",
-      "id": 6
-    },
-    {
-      "name": "",
-      "location": "New York, NY",
-      "description": "",
-      "id": 7
     }
   ]
 }

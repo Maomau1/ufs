@@ -1,7 +1,10 @@
 import React, {useState} from 'react'
 import NavBar from '../components/NavBar'
+import { useOutletContext, useNavigate } from 'react-router-dom';
 
-function NewProject({handleNewProject}) {
+function NewProject() {
+    const navigate=useNavigate();
+    const {handleNewProject}=useOutletContext()
     console.log(handleNewProject)
     const [formData, setFormData]=useState({
         name:"",
@@ -14,7 +17,7 @@ function NewProject({handleNewProject}) {
         let value=e.target.value;
         setFormData({...formData,
         [name]:value})
-        console.log(formData)
+        //console.log(formData)
     }
     function handleSubmit(e){
         e.preventDefault()
@@ -30,7 +33,7 @@ function NewProject({handleNewProject}) {
         .then(res=>res.json())
         .then(data=>{
             handleNewProject(data)
-            //props.history.push('project/${data.id}')
+            navigate(`../project/${data.id}`)
             })
 
         const clearForm={...formData,

@@ -12,7 +12,7 @@ function Project() {
     console.log(projectID)
 
     useEffect(()=>{
-        fetch(`http://localhost:4000/projects/${projectID}`)
+        fetch(`http://localhost:3000/projects/${projectID}`)
         .then(res=>res.json())
         .then(data=>setProject(data))
         .catch(error=>console.log(error))

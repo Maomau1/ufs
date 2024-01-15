@@ -1,41 +1,28 @@
-import React, {useState, useEffect} from 'react'
-import ProjectCard from '../components/ProjectCard'
-import NewProject from './NewProject'
-import NavBar from '../components/NavBar'
-//import {projects as data} from '../projects'
+import React, {useState} from 'react';
+import logo from '../logo.svg';
+import '../App.css';
+import {useNavigate} from 'react-router-dom'
 
 function Home() {
-    //console.log("Home rendering")
-    const [projects, setProjects]=useState([])
-    useEffect(()=>{
-      fetch('http://localhost:3000/projects')
-      .then(res=>res.json())
-      .then(data=>setProjects(data))
-      .catch(error=>console.log(error))
-    },[])
-
-    function handleNewProject(projectAdded){
-      //console.log(projectAdded)
-        setProjects([...projects,projectAdded])
+    console.log("Welcome Page rendering")
+    const navigate = useNavigate();
+    function handleClick(e){
+      console.log(e.target.value)
+      navigate(`${e.target.value}`)
     }
-    
-   // console.log(handleNewProject);
-    //console.log (projects)
-    
-    const projectsToDisplay=projects.map(project=>{
-      // console.log(project)
-      return <article key={project.id}><ProjectCard name={project.name} id={project.id}/></article>})
-      return (
-        <div>
-      <header>
-        <NavBar/>
-      </header>
-      <main>
-      <h2>I am the UFS Engineering Home</h2>
-      {projectsToDisplay}
-      <NewProject handleNewProject={handleNewProject}/>
-      </main>
-    </div>
-  )
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Welcome to <code>ufs first database attempt</code> beta version.
+          </p>
+          <span><button value='/projects' onClick={handleClick}>See Projects</button> <button value='/newproject' onClick={handleClick}>Add New Project</button></span>
+        </header>
+        <main>
+        </main>
+      </div>
+    );
 }
+
 export default Home

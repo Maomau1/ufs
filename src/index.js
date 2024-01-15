@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import routes from './routes';
+//import { MyProvider } from './MyContext'
 //import reportWebVitals from './reportWebVitals';
 const router=createBrowserRouter(routes)
 
