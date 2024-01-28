@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {Links, Navigate, Outlet, useNavigate} from 'react-router-dom'
-import Home from './pages/Projects';
+import { Outlet, useNavigate} from 'react-router-dom'
 
 
 function App() {

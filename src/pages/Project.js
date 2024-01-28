@@ -1,7 +1,6 @@
-import Reactm, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import NavBar from '../components/NavBar'
 import { useParams } from 'react-router-dom'
-//import {projects as data} from '../projects'
 
 function Project() {
     console.log("Project Display")
