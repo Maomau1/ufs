@@ -18,6 +18,10 @@ function NavBar() {
         to="/newproject">
             New Project
         </NavLink>    
+        <NavLink
+        to = "/about">
+          About
+        </NavLink>
     </div>
   )
 }
