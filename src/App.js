@@ -21,6 +21,7 @@ function App() {
   }
   function handleNewProject(projectAdded){
     console.log(projectAdded)
+    // const newProject = {...projectAdded,description:"Hello Nancy"}
    setProjects([...projects,projectAdded])
   }
   return (<>
